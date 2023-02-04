@@ -5,3 +5,16 @@ body {
     background-color: #1a191d;
     font-family: "Poppins", sans-serif;
 }
+
+/* Date Card Style Override */
+.react-datepicker-wrapper {
+    display: block !important;
+  }
+  .search_panel .panel input {
+    font-size: 1rem;
+    border-radius: 3px;
+    border: 1px solid grey;
+    padding: .35rem .5rem;
+    width: 100%;
+    max-width: 160px;
+  }
