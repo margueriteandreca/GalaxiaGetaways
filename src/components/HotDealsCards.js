@@ -10,6 +10,7 @@ function HotDealsCards({ packageName, image, location, price }) {
                         border-bottom-right-radius: 8px;
                         transition: all 0.15s;
                         margin-bottom: 1rem;
+                        margin: auto;
                     }
                     .image, .panel {
                         transition: all 0.25s;

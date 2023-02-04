@@ -96,19 +96,19 @@ export default function Home() {
                 {`
                     .hotdeals_container {
                         background: #fcf7ff;
-                        max-width: 900px;
+                        width: 100%;
+                        max-width: 1200px;
                         height: 70vh;
-                        padding: 1rem;
+                        padding: 1.5rem 1rem;
                         border-radius: 8px;
                         margin-left: auto;
                         overflow: scroll;
-                        width: 100%;
                     }
                     .deals {
                         display: grid;
                         grid-template-columns: repeat(
                             auto-fill,
-                            minmax(275px, 1fr)
+                            minmax(285px, 1fr)
                         );
                         grid-gap: 1em;
                     }
@@ -119,6 +119,7 @@ export default function Home() {
                     .search_panel {
                         background: #fcf7ff;
                         width: 100%;
+                        max-width: 600px;
                         color: black;
                         margin-right: 1rem;
                         max-height: 300px;
