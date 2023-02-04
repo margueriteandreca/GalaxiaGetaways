@@ -2,6 +2,8 @@ import DetailedCard from "@/components/DetailedCard";
 import { useState, useCallback, useEffect } from "react";
 import styles from "../../styles/Results.module.css"
 
+// HAVING ISSUES MAKING NEXT/IMAGE COMPONENT RESPONSIVE
+
 function index() {
     const [results, setResults] = useState([])
     const [resultsError, setResultsError] = useState("")
@@ -10,7 +12,7 @@ function index() {
     const fetchResults = useCallback(async () => {
         setIsLoading(true)
         try{
-        const response = await fetch("")
+        const response = await fetch("http://localhost:3001/packages")
         const data = await response.json()
         setResults(data)
         setIsLoading(false)
@@ -28,11 +30,13 @@ function index() {
     
       }, [])
 
-    // const mappedResults = results.map(result => <DetailedCard key={result.id} />)
+
+    const mappedResults = results.map(result => <DetailedCard key={result.id} name={result.packageName} image={result.image} location={result.location} description={result.description} price={result.price}/>)
 
     return (
         <div className={styles.screen}>
-            <DetailedCard />
+            {/* <DetailedCard /> */}
+            {mappedResults}
         </div>
     );
 }
