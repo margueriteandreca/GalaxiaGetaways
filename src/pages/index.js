@@ -1,7 +1,7 @@
 import HotDealsCards from "@/components/HotDealsCards";
 import Head from "next/head";
 import Packages from "../../db.json";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
@@ -9,6 +9,11 @@ import "react-datepicker/dist/react-datepicker.css";
 export default function Home() {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
+    useEffect(() => {
+        localStorage.setItem("startDate", startDate);
+        localStorage.setItem("endDate", endDate);
+    }, [startDate, endDate]);
+
     return (
         <>
             <Head>
@@ -29,7 +34,7 @@ export default function Home() {
                         <h2>Search Panel Here</h2>
                         <div className="panel">
                             <div className="check_in">
-                              Check in date:
+                                Check in date:
                                 <DatePicker
                                     selected={startDate}
                                     onChange={(date) => {
@@ -53,7 +58,7 @@ export default function Home() {
                                 </p>
                             </div>
                             <div className="check_out">
-                            Check out date:
+                                Check out date:
                                 <DatePicker
                                     selected={endDate}
                                     onChange={(date) => setEndDate(date)}
@@ -61,13 +66,19 @@ export default function Home() {
                             </div>
                         </div>
                         <div className="search">
-                        <select name="package_select" id="package_select">
-                          <option value="">Select Your Destination</option>
-                          <option value="inner">Inner Solar System</option>
-                          <option value="outer">Outer Solar System</option>
-                          <option value="moon">Our Moon</option>
-                        </select>
-                        <button>Search</button>
+                            <select name="package_select" id="package_select">
+                                <option value="">
+                                    Select Your Destination
+                                </option>
+                                <option value="inner">
+                                    Inner Solar System
+                                </option>
+                                <option value="outer">
+                                    Outer Solar System
+                                </option>
+                                <option value="moon">Our Moon</option>
+                            </select>
+                            <button>Search</button>
                         </div>
                     </div>
 
@@ -129,47 +140,47 @@ export default function Home() {
                         align-items: center;
                     }
                     .search_panel .panel {
-                      display: flex;
-                      gap: 1rem;
+                        display: flex;
+                        gap: 1rem;
                     }
                     .search_panel .search {
-                      margin-top: 1rem;
+                        margin-top: 1rem;
                     }
                     .search_panel .search select {
-                      -webkit-appearance: none;
-                      -moz-appearance: none;
-                      background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
-                      background-repeat: no-repeat;
-                      background-position-x: 98%;
-                      background-position-y: 50%;
-                      margin-top: 1rem;
-                      margin-bottom: 1rem;
-                      border: 1px solid grey;
-                      border-radius: 3px;
-                      padding: .45rem .5rem;
-                      width: 100%;
-                      min-width: 225px;
-                      font-size: 1rem;
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+                        background-repeat: no-repeat;
+                        background-position-x: 98%;
+                        background-position-y: 50%;
+                        margin-top: 1rem;
+                        margin-bottom: 1rem;
+                        border: 1px solid grey;
+                        border-radius: 3px;
+                        padding: 0.45rem 0.5rem;
+                        width: 100%;
+                        min-width: 225px;
+                        font-size: 1rem;
                     }
                     .search_panel .search button {
-                      cursor: pointer;
-                      padding: .45rem 1rem;
-                      display: block;
-                      margin: auto;
-                      font-size: 1rem;
-                      color: white;
-                      background: #9182EC;
-                      border: none;
+                        cursor: pointer;
+                        padding: 0.45rem 1rem;
+                        display: block;
+                        margin: auto;
+                        font-size: 1rem;
+                        color: white;
+                        background: #9182ec;
+                        border: none;
                     }
                     .search_panel .search button:hover {
-                      background: #8878eb;
+                        background: #8878eb;
                     }
                     .error_message {
-                      color: red;
-                      font-size: 12px;
-                      // font-weight: 600;
-                      position: absolute;
-                      margin: 0;
+                        color: red;
+                        font-size: 12px;
+                        // font-weight: 600;
+                        position: absolute;
+                        margin: 0;
                     }
                 `}
             </style>
