@@ -1,0 +1,46 @@
+.screen {
+    background-color: #1A191D;
+    color: gainsboro;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.card {
+    background-color: #403e47;
+    width: 50%;
+    height: 250px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: flex-start;
+    /* align-items: center; */
+
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+}
+
+.image {
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.title {
+    font-size: larger;
+}
+
+.description {
+    font-size: smaller;
+}
+
+.tagContainer {
+    border-radius: 10px;
+    background-color: aquamarine;
+    width: fit-content;
+    padding: 5px;
+}
