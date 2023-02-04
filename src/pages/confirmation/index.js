@@ -21,6 +21,7 @@ function index() {
     console.log(endDate);
     return (
         <div style={{color: "white"}}>
+            
             <p>Check In: {startDate.toDateString()}</p>
             <p>Check Out: {endDate.toDateString()}</p>
         </div>
