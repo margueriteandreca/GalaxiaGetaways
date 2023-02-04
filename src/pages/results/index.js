@@ -30,7 +30,6 @@ function index() {
     
       }, [])
 
-
     const mappedResults = results.map(result => <DetailedCard key={result.id} name={result.packageName} image={result.image} location={result.location} description={result.description} price={result.price}/>)
 
     return (
