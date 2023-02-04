@@ -6,8 +6,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 10px;
     gap: 1rem;
     
+}
+
+.resultsText {
+    width: 50%;
+    display: flex;
+    justify-content: center;
 }
 
 .card {
@@ -29,16 +36,17 @@
 
 .imageContainer {
     height: 100%;
+    width: 100%;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
 
-.image {
+/* .image {
     object-fit: contain;
     width: 100% !important;
     position: relative !important;
     height: unset !important;
-}
+} */
 
 .title {
     font-size: larger;

@@ -1,5 +1,6 @@
 import HotDealsCards from "@/components/HotDealsCards";
 import Head from "next/head";
+import Link from 'next/link';
 import Packages from "../../db.json";
 import React, { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
@@ -13,6 +14,12 @@ export default function Home() {
         localStorage.setItem("startDate", startDate);
         localStorage.setItem("endDate", endDate);
     }, [startDate, endDate]);
+
+    const [zone, setZone] = useState("")
+
+    const onZoneChange = (e) => {
+        setZone(e.target.value)
+    }
 
     return (
         <>
@@ -66,7 +73,7 @@ export default function Home() {
                             </div>
                         </div>
                         <div className="search">
-                            <select name="package_select" id="package_select">
+                            <select name="package_select" id="package_select" onChange={onZoneChange}>
                                 <option value="">
                                     Select Your Destination
                                 </option>
@@ -78,7 +85,13 @@ export default function Home() {
                                 </option>
                                 <option value="moon">Our Moon</option>
                             </select>
+                            <Link href={{
+                                        pathname: "/results",
+                                        query: { zone: zone },
+                                      }}>
                             <button>Search</button>
+                            </Link>
+
                         </div>
                     </div>
 
@@ -91,12 +104,17 @@ export default function Home() {
                                     return;
                                 }
                                 return (
+                                    <Link href={{
+                                        pathname: "/confirmation",
+                                        query: { id: `${planetPackages.id}` },
+                                      }}>
                                     <HotDealsCards
                                         packageName={planetPackages.packageName}
                                         image={planetPackages.image}
                                         location={planetPackages.location}
                                         price={planetPackages.price}
                                     />
+                                    </Link>
                                 );
                             })}
                         </div>

@@ -1,5 +1,4 @@
-{
-    "packages": [
+[
     {
         "id": 1,
         "inner": true,
@@ -443,4 +442,4 @@
         "visaRequired": true
     }
 ]
-}
+

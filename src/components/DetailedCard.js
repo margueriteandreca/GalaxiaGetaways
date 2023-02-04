@@ -5,18 +5,33 @@ import Tag from "./Tag";
 
 function DetailedCard({name, image, location, description, price}) {
 
+    console.log(image)
+
     return (
         <div className={styles.card}>
             <div className={styles.imageContainer}>
-                <Image
+                <div
+                className="image"
+                style={{
+                        height: "100%",
+                        backgroundImage: `url(${image})`,
+                        backgroundPosition: "center",
+                        backgroundSize: "cover",
+                        borderTopLeftRadius: "10px",
+                        borderBottomLeftRadius: "10px"
+                    }}>
+
+                    </div>
+
+                {/* <Image
                 layout="fill"
                 className={styles.image}
                 src={image}
-                // alt={description}
-                // width="350"
-                // height="250"
+                alt={description}
+                width="350"
+                height="250"
                 style={{borderTopLeftRadius: "10px", borderBottomLeftRadius: "10px"}}
-                />
+                /> */}
             </div>
             <div className={styles.details}>
                 <div className={styles.titleContainer}>
