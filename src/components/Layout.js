@@ -1,10 +1,24 @@
-const Layout = ({children}) => {
+import Image from "next/image";
+const Layout = ({ children }) => {
     return (
-      <> 
-      <nav>Nav Goes Here</nav>
-        {children}
-      </>
+        <>
+            <nav style={{ background: "#302C3E", padding: "1rem" }}>
+                <a href="/">
+                    <Image
+                        src={"/logo03.png"}
+                        width={600}
+                        height={100}
+                        style={{
+                            width: "100%;",
+                            height: "100%",
+                            maxWidth: "325px",
+                        }}
+                    />
+                </a>
+            </nav>
+            {children}
+        </>
     );
-  };
-  
-  export default Layout;
+};
+
+export default Layout;
