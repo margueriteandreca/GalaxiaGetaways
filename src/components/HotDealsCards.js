@@ -1,4 +1,5 @@
 function HotDealsCards({ packageName, image, location, price }) {
+
     return (
         <>
             <style jsx>
