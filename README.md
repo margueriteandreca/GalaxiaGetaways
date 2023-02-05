@@ -8,7 +8,7 @@
 ## Table of contents
 
 - [Overview](#overview)
-  - [The challenge](#the-challenge)
+  - [The Hackathon challenge](#the-hackathon-challenge)
   - [Screenshots](#screenshots)
 - [Our process](#our-process)
   - [Built with](#built-with)
