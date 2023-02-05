@@ -1,5 +1,6 @@
 # Galaxia Getaways
 ### A hackathon project for [Hack for the Future](https://hack-for-the-future.devpost.com/) Feb.3rd-5th 2023!
+### View [DEMO](https://www.youtube.com/watch?v=NA_euVlmHbo)
 
 ## Hackathon Team:
 - [Marguerite Andreca](https://github.com/margueriteandreca) - Full-Stack Software Engineer
