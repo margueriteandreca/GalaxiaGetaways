@@ -124,7 +124,8 @@ export default function Home() {
             <style jsx>
                 {`
                     .hotdeals_container {
-                        background: #fcf7ff;
+                        // background: #fcf7ff;
+                        background-color: #403e47;
                         width: 100%;
                         max-width: 1200px;
                         height: 70vh;
@@ -146,7 +147,8 @@ export default function Home() {
                         margin-top: 2rem;
                     }
                     .search_panel {
-                        background: #fcf7ff;
+                        // background: #fcf7ff;
+                        background-color: #403e47;
                         width: 100%;
                         max-width: 600px;
                         color: black;

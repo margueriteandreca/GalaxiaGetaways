@@ -1,9 +1,9 @@
 import styles from "../styles/Results.module.css"
 
-function Tag() {
+function Tag({text}) {
     return (
         <div className={styles.tagContainer}>
-            <div className={styles.tagText}>tag</div>
+            <div className={styles.tagText}>{text}</div>
         </div>
     )
 }

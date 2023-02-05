@@ -3,9 +3,8 @@ import Image from "next/image"
 import mypic from "../../public/images/outer/azure.jpg"
 import Tag from "./Tag";
 
-function DetailedCard({name, image, location, description, price}) {
+function DetailedCard({name, image, location, description, price, adventure, romantic, healthClearance, visaRequired, goodForFamilies}) {
 
-    console.log(image)
 
     return (
         <div className={styles.card}>
@@ -22,16 +21,6 @@ function DetailedCard({name, image, location, description, price}) {
                     }}>
 
                     </div>
-
-                {/* <Image
-                layout="fill"
-                className={styles.image}
-                src={image}
-                alt={description}
-                width="350"
-                height="250"
-                style={{borderTopLeftRadius: "10px", borderBottomLeftRadius: "10px"}}
-                /> */}
             </div>
             <div className={styles.details}>
                 <div className={styles.titleContainer}>
@@ -41,8 +30,14 @@ function DetailedCard({name, image, location, description, price}) {
                     </div>
                 <div className={styles.price}>${price}/night</div>
                 </div>
-
-                <Tag />
+                <div className={styles.tags}>
+                    { goodForFamilies && <Tag text={"Family Friendly"}/> }
+                    { romantic && <Tag text={"Romantic"}/> }
+                    { adventure && <Tag text={"Adventure"}/> }
+                    { healthClearance && <Tag text={"OP* Health Clearance Required"}/> }
+                    { visaRequired && <Tag text={"Visa Required"}/> }
+                </div>
+                
                 <div className={styles.description}>{description}</div>
 
                 <div className={styles.button}>Reserve</div>

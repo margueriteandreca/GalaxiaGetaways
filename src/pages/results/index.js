@@ -9,12 +9,12 @@ function index() {
     const router = useRouter()
     const { zone } = router.query
 
-    const [results, setResults] = useState(Packages.filter(packageOption => { 
+    const results = Packages.filter(packageOption => { 
         if (zone && zone !== "") {
             return packageOption[zone]
         }
         return true
-    }))
+    })
     const [resultsError, setResultsError] = useState("")
     const [isLoading, setIsLoading] = useState(false)
 
@@ -39,7 +39,8 @@ function index() {
     
     //   }, [])
 
-    const mappedResults = results.map(result => <DetailedCard key={result.id} name={result.packageName} image={result.image} location={result.location} description={result.description} price={result.price}/>)
+    const mappedResults = results.map(result => <DetailedCard key={result.id} name={result.packageName} image={result.image} location={result.location} description={result.description} price={result.price} goodForFamilies={result.goodForFamilies} romantic={result.romantic} adventure={result.adventure} healthClearance={result.healthClearance} visaRequired={result.visaRequired}/>)
+
 
     return (
         <div className={styles.screen}>
