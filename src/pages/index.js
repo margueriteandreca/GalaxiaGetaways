@@ -38,7 +38,8 @@ export default function Home() {
             <section style={{ color: "white", padding: "1rem" }}>
                 <div className="container">
                     <div className="search_panel">
-                        <h2>Search Panel Here</h2>
+                        <h2>Browse Interplanetary Destinations</h2>
+                        <div className="outer-panel"> 
                         <div className="panel">
                             <div className="check_in">
                                 Check in date:
@@ -75,7 +76,7 @@ export default function Home() {
                         <div className="search">
                             <select name="package_select" id="package_select" onChange={onZoneChange}>
                                 <option value="">
-                                    Select Your Destination
+                                    Select Solar System Zone
                                 </option>
                                 <option value="inner">
                                     Inner Solar System
@@ -83,14 +84,15 @@ export default function Home() {
                                 <option value="outer">
                                     Outer Solar System
                                 </option>
-                                <option value="moon">Our Moon</option>
+                                <option value="moon">The Moon (Earth-Zone)</option>
                             </select>
                             <Link href={{
                                         pathname: "/results",
                                         query: { zone: zone },
                                       }}>
-                            <button>Search</button>
+                            <button>Discover</button>
                             </Link>
+                            </div>
 
                         </div>
                     </div>
@@ -105,9 +107,10 @@ export default function Home() {
                                 }
                                 return (
                                     <Link href={{
-                                        pathname: "/confirmation",
+                                        pathname: "/checkout",
                                         query: { id: `${planetPackages.id}` },
-                                      }}>
+                                      }}
+                                      style={{textDecoration: "none"}}>
                                     <HotDealsCards
                                         packageName={planetPackages.packageName}
                                         image={planetPackages.image}
@@ -151,7 +154,7 @@ export default function Home() {
                         background-color: #403e47;
                         width: 100%;
                         max-width: 600px;
-                        color: black;
+                        color: gainsboro;
                         margin-right: 1rem;
                         max-height: 300px;
                         border-radius: 8px;
@@ -162,6 +165,10 @@ export default function Home() {
                     .search_panel .panel {
                         display: flex;
                         gap: 1rem;
+                    }
+                    .outer-panel {
+                        height: 70%;
+
                     }
                     .search_panel .search {
                         margin-top: 1rem;
@@ -184,6 +191,8 @@ export default function Home() {
                     }
                     .search_panel .search button {
                         cursor: pointer;
+                        width: 100%;
+                        border-radius: 5px;
                         padding: 0.45rem 1rem;
                         display: block;
                         margin: auto;
@@ -194,6 +203,9 @@ export default function Home() {
                     }
                     .search_panel .search button:hover {
                         background: #8878eb;
+                    }
+                    .button > * {
+                        text-decoration: none;
                     }
                     .error_message {
                         color: red;

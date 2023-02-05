@@ -47,8 +47,9 @@ function index() {
             <div className={styles.resultsText}>
                 Showing getaways {zone === "moon" ? "on" : "in"} the {zone}
             </div>
-            {/* <DetailedCard /> */}
+            <div className={styles.resultsContainer}>
             {mappedResults}
+            </div>
         </div>
     );
 }

@@ -3,22 +3,41 @@ import Image from "next/image"
 import mypic from "../../public/images/outer/azure.jpg"
 import Tag from "./Tag";
 
-function DetailedCard({name, image, location, description, price, adventure, romantic, healthClearance, visaRequired, goodForFamilies}) {
+function DetailedCard({name, image, location, description, price, adventure, romantic, healthClearance, visaRequired, goodForFamilies, isCheckout = false}) {
+
+    const imageStyles = {
+        height: "100%",
+        backgroundImage: `url(${image})`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        borderTopLeftRadius: "10px",
+        borderBottomLeftRadius: "10px"
+
+    }
+
+    const imageStylesCheckout = {
+        height: "100%",
+        backgroundImage: `url(${image})`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        borderTopLeftRadius: "10px",
+        borderTopRightRadius: "10px"
+
+    }
+
+
 
 
     return (
-        <div className={styles.card}>
-            <div className={styles.imageContainer}>
+        <div className={isCheckout ? styles.cardCheckout : styles.card}>
+            <div className={isCheckout ? styles.imageContainerCheckout : styles.imageContainer}>
                 <div
                 className="image"
-                style={{
-                        height: "100%",
-                        backgroundImage: `url(${image})`,
-                        backgroundPosition: "center",
-                        backgroundSize: "cover",
-                        borderTopLeftRadius: "10px",
-                        borderBottomLeftRadius: "10px"
-                    }}>
+                style={
+                    isCheckout ?
+                    imageStylesCheckout :
+                    imageStyles
+                    }>
 
                     </div>
             </div>
@@ -40,7 +59,7 @@ function DetailedCard({name, image, location, description, price, adventure, rom
                 
                 <div className={styles.description}>{description}</div>
 
-                <div className={styles.button}>Reserve</div>
+                {isCheckout ? null : <div className={styles.button}>Reserve</div>}
             </div>
             
         </div>

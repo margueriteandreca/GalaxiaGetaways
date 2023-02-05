@@ -1,8 +1,16 @@
+import DetailedCard from "@/components/DetailedCard";
 import { useEffect, useState } from "react";
+import { useRouter } from 'next/router'
+import Packages from "../../../db.json";
 
 function index() {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
+
+    const router = useRouter()
+    const { id } = router.query
+    const selectedPackage = Packages.find(vacationPackage => vacationPackage.id === Number(id))
+    
 
     useEffect(() => {
         const storedStartDate = localStorage.getItem("startDate");
@@ -20,6 +28,10 @@ function index() {
     return (
         <div className="checkout">
             <div className="checkout_container">
+            <div className="right">
+            {selectedPackage && <DetailedCard name={selectedPackage.packageName} image={selectedPackage.image} location={selectedPackage.location} description={selectedPackage.description} price={selectedPackage.price} goodForFamilies={selectedPackage.goodForFamilies} romantic={selectedPackage.romantic} adventure={selectedPackage.adventure} healthClearance={selectedPackage.healthClearance} visaRequired={selectedPackage.visaRequired} isCheckout={true}/>}
+            </div>
+
                 <div className="left">
                     <h1>Confirm your booking</h1>
                     <div className="dates">
@@ -53,10 +65,13 @@ function index() {
                     <div>
                         <button>Submit</button>
                     </div>
+                    <div>
+                        * Outer-Planet Health Clearance and Required Visas MUST be obtained prior to Check-in!
+                        All dates and times are in accordance with Earth Standard Time (EST)
+                        All Earth-Simulating and Necessary-to-Human-Life Gear is provided by GALAZIA GETAWAYS 
+                    </div>
                 </div>
-                <div className="right">
-                    <h2>Component Card with package data goes here</h2>
-                </div>
+
             </div>
         </div>
     );

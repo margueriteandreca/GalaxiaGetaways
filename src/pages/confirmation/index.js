@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
+import { useRouter } from 'next/router'
+import DetailedCard from "@/components/DetailedCard";
+import styles from "../../styles/Confirmation.module.css"
 
 function index() {
+    const router = useRouter()
+    const { id } = router.query
+
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
 
@@ -20,7 +26,8 @@ function index() {
     console.log(startDate);
     console.log(endDate);
     return (
-        <div style={{color: "white"}}>
+        <div className={styles.screen}>
+            <DetailedCard />
             
             <p>Check In: {startDate.toDateString()}</p>
             <p>Check Out: {endDate.toDateString()}</p>

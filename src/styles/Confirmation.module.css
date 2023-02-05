@@ -1,0 +1,10 @@
+.screen {
+    background-color: #1A191D;
+    color: gainsboro;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    gap: 1rem;
+}
