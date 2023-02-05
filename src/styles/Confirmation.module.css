@@ -5,6 +5,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 80vh;
     margin-top: 10px;
     gap: 1rem;
+}
+
+.confirmation {
+    font-size: larger;
+    font-weight: 500;
+}
+.bold {
+    font-weight: 700;
+    color: rgb(92, 188, 156);
 }

@@ -13,9 +13,12 @@
 }
 
 .resultsText {
+    margin-top: 15px;
     width: 50%;
     display: flex;
     justify-content: center;
+    color: rgb(92, 188, 156);
+    letter-spacing: 2.5px;
 }
 
 .resultsContainer {
@@ -55,12 +58,12 @@
     padding: 10px;
 }
 
-/* .imageContainer {
+.imageContainer {
     height: 100%;
     width: 100%;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
-} */
+}
 
 .imageContainerCheckout {
     height: 100%;
@@ -110,11 +113,22 @@
 }
 
 .button {
+    color: rgb(103, 208, 173);
+    font-size: smaller;
+    letter-spacing: 2px;
     border-radius: 20px;
+    display: flex;
+    justify-content: center;
     align-self: center;
     margin-top: 20px;
-    color:#1A191D;
-    background-color: aquamarine;
-    width: fit-content;
-    padding: 5px;
+    background-color: #27262c;
+    border-style: solid;
+    border-color: rgb(103, 102, 102);
+    border-width: .5px;
+    width: 20%;
+    padding: 10px;
+}
+
+.link {
+    text-decoration: none;
 }

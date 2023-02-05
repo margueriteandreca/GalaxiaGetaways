@@ -1,11 +1,14 @@
 import DetailedCard from "@/components/DetailedCard";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { useRouter } from 'next/router'
 import Packages from "../../../db.json";
 
 function index() {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
+
+    const [fullName, setFullName] = useState("")
+    const [email, setEmail] = useState("")
 
     const router = useRouter()
     const { id } = router.query
@@ -25,14 +28,33 @@ function index() {
         }
     }, []);
 
+    const handleReservationConfirmed = () => {
+        localStorage.setItem("fullName", fullName);
+        localStorage.setItem("email", email);
+        router.push({
+            pathname: "/confirmation",
+            query: { name: selectedPackage.packageName },
+          })
+    }
+
+    const handleChangeName = (e) => {
+        setFullName(e.target.value)
+    }
+
+    const handleChangeEmail = (e) => {
+        setEmail(e.target.value)
+
+    }
+
     return (
         <div className="checkout">
             <div className="checkout_container">
             <div className="right">
-            {selectedPackage && <DetailedCard name={selectedPackage.packageName} image={selectedPackage.image} location={selectedPackage.location} description={selectedPackage.description} price={selectedPackage.price} goodForFamilies={selectedPackage.goodForFamilies} romantic={selectedPackage.romantic} adventure={selectedPackage.adventure} healthClearance={selectedPackage.healthClearance} visaRequired={selectedPackage.visaRequired} isCheckout={true}/>}
+            {selectedPackage && <DetailedCard id={selectedPackage.id} name={selectedPackage.packageName} image={selectedPackage.image} location={selectedPackage.location} description={selectedPackage.description} price={selectedPackage.price} goodForFamilies={selectedPackage.goodForFamilies} romantic={selectedPackage.romantic} adventure={selectedPackage.adventure} healthClearance={selectedPackage.healthClearance} visaRequired={selectedPackage.visaRequired} isCheckout={true}/>}
             </div>
 
                 <div className="left">
+                    
                     <h1>Confirm your booking</h1>
                     <div className="dates">
                         <p>
@@ -48,6 +70,8 @@ function index() {
                         <div>
                             <label htmlFor="name">Full Name:</label>
                             <input
+                                value={fullName} 
+                                onChange={handleChangeName}
                                 type="text"
                                 id="name"
                                 placeholder="Type Your Full Name"
@@ -56,6 +80,8 @@ function index() {
                         <div>
                             <label htmlFor="email">Email:</label>
                             <input
+                                value={email} 
+                                onChange={handleChangeEmail}
                                 type="email"
                                 id="email"
                                 placeholder="Type Your Email"
@@ -63,12 +89,12 @@ function index() {
                         </div>
                     </div>
                     <div>
-                        <button>Submit</button>
+                        <button onClick={handleReservationConfirmed}>Confirm</button>
                     </div>
-                    <div>
+                    <div className="terms">
                         * Outer-Planet Health Clearance and Required Visas MUST be obtained prior to Check-in!
-                        All dates and times are in accordance with Earth Standard Time (EST)
-                        All Earth-Simulating and Necessary-to-Human-Life Gear is provided by GALAZIA GETAWAYS 
+                        All dates and times are in accordance with Earth Standard Time (EST).
+                        All Earth-Simulating and Necessary-to-Human-Life Gear is provided by Galaxia Getaways.
                     </div>
                 </div>
 

@@ -1,9 +1,8 @@
 import styles from "../styles/Results.module.css"
-import Image from "next/image"
-import mypic from "../../public/images/outer/azure.jpg"
+import Link from 'next/link';
 import Tag from "./Tag";
 
-function DetailedCard({name, image, location, description, price, adventure, romantic, healthClearance, visaRequired, goodForFamilies, isCheckout = false}) {
+function DetailedCard({id, name, image, location, description, price, adventure, romantic, healthClearance, visaRequired, goodForFamilies, isCheckout = false}) {
 
     const imageStyles = {
         height: "100%",
@@ -25,9 +24,6 @@ function DetailedCard({name, image, location, description, price, adventure, rom
 
     }
 
-
-
-
     return (
         <div className={isCheckout ? styles.cardCheckout : styles.card}>
             <div className={isCheckout ? styles.imageContainerCheckout : styles.imageContainer}>
@@ -38,7 +34,6 @@ function DetailedCard({name, image, location, description, price, adventure, rom
                     imageStylesCheckout :
                     imageStyles
                     }>
-
                     </div>
             </div>
             <div className={styles.details}>
@@ -59,7 +54,18 @@ function DetailedCard({name, image, location, description, price, adventure, rom
                 
                 <div className={styles.description}>{description}</div>
 
-                {isCheckout ? null : <div className={styles.button}>Reserve</div>}
+                {isCheckout ? 
+                null : 
+                <Link
+                href={{
+                    pathname: "/checkout",
+                    query: { id: id },
+                  }}
+                  className={styles.link}>
+                <div 
+                className={styles.button}>
+                RESERVE</div>
+                </Link>}
             </div>
             
         </div>

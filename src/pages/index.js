@@ -89,7 +89,8 @@ export default function Home() {
                             <Link href={{
                                         pathname: "/results",
                                         query: { zone: zone },
-                                      }}>
+                                      }}
+                                      style={{textDecoration: "none"}}>
                             <button>Discover</button>
                             </Link>
                             </div>
@@ -98,6 +99,7 @@ export default function Home() {
                     </div>
 
                     <div className="hotdeals_container">
+                        <div className="deals-header">Supernova Deals</div>
                         <div className="deals">
                             {Packages.filter(
                                 (planetPackages) => planetPackages.hotDeals
@@ -144,6 +146,16 @@ export default function Home() {
                             minmax(285px, 1fr)
                         );
                         grid-gap: 1em;
+                    }
+                    .deals-header {
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        margin-bottom: 20px;
+                        font-size: 22px;
+                        font-weight: 700;
+                        color: rgb(92, 188, 156);
+
                     }
                     .container {
                         display: flex;
